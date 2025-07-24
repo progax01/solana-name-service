@@ -1,0 +1,20 @@
+{
+  "name": "nameservice-client",
+  "version": "1.0.0",
+  "description": "Client for interacting with the Solana Naming Service",
+  "main": "client.js",
+  "scripts": {
+    "test": "node client.js",
+    "register": "node -e \"const client = require('./client.js'); client.registerDomain(process.argv[1], process.argv[2], client.payer.publicKey, process.argv[3] || 'https://ipfs.io/default', parseInt(process.argv[4]) || 86400).then(console.log);\"",
+    "query": "node -e \"const client = require('./client.js'); client.queryDomain(process.argv[1], process.argv[2]).then(console.log);\"",
+    "update": "node -e \"const client = require('./client.js'); client.updateDomain(process.argv[1], process.argv[2], client.payer.publicKey, process.argv[3] || 'https://ipfs.io/updated').then(console.log);\"",
+    "extend": "node -e \"const client = require('./client.js'); client.extendDomain(process.argv[1], process.argv[2], parseInt(process.argv[3]) || 86400).then(console.log);\"",
+    "close": "node -e \"const client = require('./client.js'); client.closeDomain(process.argv[1], process.argv[2]).then(console.log);\""
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.78.0"
+  },
+  "keywords": ["solana", "blockchain", "naming-service"],
+  "author": "Your Name",
+  "license": "MIT"
+}
